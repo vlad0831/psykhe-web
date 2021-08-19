@@ -1,0 +1,59 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+@import '~mmenu-light/src/mmenu-light.scss';
+
+@import 'components/avatar';
+
+@import 'animations';
+@import 'util';
+@import 'alert';
+@import 'btn';
+@import 'card';
+@import 'form';
+@import 'modal';
+@import 'progress';
+
+@import 'std';
+
+@import 'grid';
+
+@import 'brand';
+@import 'layout';
+@import 'page';
+
+@import 'login';
+@import 'survey';
+@import 'traits';
+
+#__nuxt {
+  height: 100%;
+}
+
+#__layout {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.psykhe-dark {
+  background-color: $psykhe-black;
+  color: $psykhe-white;
+  a {
+    color: $psykhe-white;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .lock-screen {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+  }
+}

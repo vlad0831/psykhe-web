@@ -1,0 +1,225 @@
+.modal {
+  &.psykhe-optionals {
+    @include media-breakpoint-down(sm) {
+      display: flex !important;
+      align-items: center;
+      .modal-dialog {
+        .modal-body {
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      .modal-dialog {
+        margin: 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        max-width: unset;
+
+        .modal-header {
+          padding: 0 1rem;
+          padding-top: 0.5rem;
+        }
+
+        .modal-body {
+          padding: 0 1rem;
+
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .modal-footer {
+          padding: 0;
+
+          button {
+            padding: 0.25rem 0.5rem;
+            margin: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.psykhe-help-pop {
+  z-index: 200;
+  opacity: 1;
+  text-indent: 0;
+  text-align: left;
+  position: absolute;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.nologin-zap {
+    top: -135px;
+    left: -79px;
+    width: 175px;
+
+    @include media-breakpoint-down(md) {
+      left: -40px;
+    }
+  }
+
+  .psykhe-help-pop-inner {
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    line-height: 1.2em;
+    border-radius: 5px;
+    border: #fff 2px solid;
+    background: rgba(193, 176, 150, 1);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(102, 102, 102, 0.44);
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(102, 102, 102, 0.44);
+    box-shadow: 4px 4px 5px 0px rgba(102, 102, 102, 0.44);
+
+    &:after {
+      content: '';
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      bottom: -12px;
+      position: absolute;
+      border-style: solid;
+      border-color: #fff;
+      transform: rotate(-45deg);
+      background: rgba(193, 176, 150, 1);
+      border-top-width: 0;
+      border-right-width: 0;
+    }
+
+    &.nologin-zap {
+      &:after {
+        @include media-breakpoint-down(md) {
+          left: 27%;
+        }
+      }
+    }
+
+    .close-button {
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      background-size: 13px;
+      background-repeat: no-repeat;
+      background-position: 96% 9px;
+      background-image: url(/media/icon/close-w.svg);
+
+      &:hover {
+        background-image: url(/media/icon/close-wide-w.svg);
+      }
+    }
+  }
+}
+
+.psykhe-help-pop-mood {
+  left: 0;
+  top: -105px;
+  width: 230px;
+
+  @include media-breakpoint-down(sm) {
+    top: -70px;
+  }
+
+  .psykhe-help-pop-inner {
+    &:after {
+      left: 28px;
+      bottom: -12px;
+      border-width: 0 0 2px 2px;
+    }
+  }
+}
+
+.psykhe-help-pop-list {
+  top: 15px;
+  left: -5px;
+  width: 200px;
+  background-size: 29px;
+  background-position: 20px 0;
+  background-repeat: no-repeat;
+  background-image: url(/media/icon/heart-t.svg);
+
+  .psykhe-help-pop-inner {
+    margin-top: 45px;
+
+    &:after {
+      top: -11px;
+      left: 23px;
+      border-width: 2px 2px 0 0;
+    }
+  }
+}
+
+.psykhe-help-pop-like {
+  left: -24px;
+  width: 200px;
+  bottom: -100px;
+
+  .psykhe-help-pop-inner {
+    &:after {
+      top: -11px;
+      left: 28px;
+      border-width: 2px 2px 0 0;
+    }
+  }
+}
+
+.modal.psykhe-optionals {
+  .modal-content {
+    background: $psykhe-tan;
+    color: #fff;
+    padding: 5px 10px 10px;
+
+    .modal-header {
+      border: none;
+
+      h5 {
+        font-size: 1.2rem;
+      }
+    }
+
+    .modal-footer {
+      border: none;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: $psykhe-tan;
+
+      &:hover {
+        border-color: $psykhe-tan-dark;
+        background: $psykhe-tan-dark;
+        color: #fff;
+      }
+    }
+
+    .btn-secondary {
+      background: none;
+      color: #fff;
+
+      &:hover {
+        border-color: #fff;
+        background: #fff;
+        color: $psykhe-tan !important;
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.card {
+    border: none;
+}
+
+.card-header {
+    @extend .psykhe-font-heading-fancy;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    @include media-breakpoint-down(sm) {
+        margin-top: 2rem;
+    }
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-body {
+    padding: 0;
+    margin: 0;
+}

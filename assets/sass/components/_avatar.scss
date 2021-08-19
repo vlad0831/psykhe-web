@@ -1,0 +1,133 @@
+.component-avatar-upload {
+  input[type='file'] {
+    display: none;
+  }
+
+  .component-avatar-upload-file-label {
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+    border: 8px solid $psykhe-tan;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0);
+
+    &:before {
+      content: ' ';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &:after {
+      width: 100%;
+      height: 100%;
+      display: block;
+      content: 'Click to Upload a Profile Picture';
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+
+      background-image: url(/media/icon/camera.svg);
+      background-size: 25%;
+      background-position: center 25%;
+      background-repeat: no-repeat;
+
+      color: black;
+      padding-top: 50%;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    figure {
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      img {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        border: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .component-avatar-upload-label-hasPrevious {
+    &:after {
+      display: none;
+      content: 'Update your picture';
+    }
+
+    &:hover {
+      &:after {
+        display: block;
+      }
+
+      img {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .component-avatar-upload-label-hasPrevious-withoutHover {
+    &:after {
+      display: block;
+      content: 'Update your picture';
+    }
+
+    img {
+      opacity: 0.5;
+    }
+  }
+
+  .component-avatar-upload-label-hasData {
+    display: none;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 0.1rem;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    background-color: $psykhe-tan;
+    margin-top: -0.45rem;
+  }
+
+  .component-avatar-upload-preview-boundary {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border: 8px solid $psykhe-tan;
+    border-radius: 50%;
+
+    &:after {
+      content: ' ';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .component-avatar-upload-preview-boundary-inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      cursor: move;
+      user-select: none;
+
+      img {
+        position: absolute;
+        pointer-events: none;
+
+        background-color: $psykhe-tan;
+      }
+    }
+  }
+}

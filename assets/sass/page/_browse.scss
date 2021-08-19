@@ -1,0 +1,793 @@
+.page-browse {
+  @media (min-width: 2100px) {
+    main {
+      max-width: 1640px;
+    }
+  }
+}
+
+.psykhe-browse {
+  @extend .row;
+  width: 100%;
+
+  .psykhe-browse-heading {
+    @extend .row;
+    @extend .psykhe-large-heading;
+    @extend .psykhe-double-line-heading;
+    margin-bottom: 0.6rem;
+
+    text-transform: capitalize;
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 0;
+      border-bottom: 1px solid #000;
+    }
+
+    p {
+      @extend .psykhe-font-standard;
+      font-size: 15px;
+      width: 100%;
+      margin-top: -5px;
+      text-transform: none;
+
+      @include media-breakpoint-down(md) {
+        font-size: 13px;
+        margin-top: -5px;
+      }
+    }
+
+    section {
+      @extend .col-md-8;
+      text-align: left;
+
+      h2 {
+        @extend .psykhe-font-heading-fancy;
+      }
+
+      a {
+        @extend .btn-black;
+      }
+    }
+    .browse-heading-hero-side {
+      @extend .col-md-4;
+
+      img {
+        width: 100%;
+        max-height: 3em;
+      }
+    }
+  }
+  .psykhe-browse-main {
+    @extend .row;
+    width: 100%;
+  }
+
+  .psykhe-browse-filters {
+    @extend .col-md-2;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 0.7rem;
+
+    @include media-breakpoint-down(md) {
+      flex: 0 0 23%;
+      max-width: 23%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding-top: 0;
+    }
+
+    .psykhe-browse-filters-filter {
+      padding: 1.2em 0;
+      border-top: #000 1px solid;
+
+      .psykhe-browse-filters-filter-heading {
+        text-transform: uppercase;
+        font-weight: 400;
+        @extend .row;
+
+        .psykhe-browse-filters-filter-heading-label {
+          width: calc(100% - 30px);
+          padding: 0.8em 0 1.5em;
+          font-size: 0.85rem;
+        }
+        .psykhe-browse-filters-filter-heading-actions {
+          width: 30px;
+          padding: 0;
+          padding-right: 0em;
+          text-align: right;
+
+          a {
+            display: inline-block;
+            color: #fff;
+            text-indent: -9999em;
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: 15px;
+            font-size: 2em;
+            font-weight: 400;
+            line-height: 1em;
+            width: 20px;
+            height: 38px;
+            cursor: pointer;
+
+            &.filter-close {
+              background-image: url(/media/icon/minus.svg);
+            }
+            &.filter-open {
+              background-image: url(/media/icon/plus.svg);
+            }
+          }
+        }
+      }
+
+      a {
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li.active,
+        li:hover {
+          font-weight: 400;
+
+          * {
+            font-weight: initial;
+          }
+        }
+      }
+
+      .psykhe-browse-filters-filter-action-more {
+        width: 100%;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+    }
+
+    .psykhe-browse-filters-filter-mood,
+    .psykhe-browse-filters-filter-occasion {
+      position: relative;
+      margin-bottom: 0.7em;
+      border: none;
+      padding: 0;
+
+      .btn-group {
+        width: 100%;
+      }
+
+      .filter-remove {
+        background-image: url(/media/icon/close-wide-w.svg);
+        background-size: 14px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: absolute;
+        z-index: 100;
+        right: 30px;
+        top: 0px;
+        height: 56px;
+        width: 30px;
+        border: none;
+        background-color: $psykhe-tan;
+        display: none;
+        border-left: #fff 1px solid;
+        border-right: #fff 1px solid;
+
+        @include media-breakpoint-down(md) {
+          display: block;
+        }
+      }
+
+      .dropdown {
+        button {
+          border: none !important;
+          -webkit-appearance: none;
+          background-color: $psykhe-tan;
+          padding: 1.2em 1em;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          width: 100%;
+          color: #fff;
+          text-align: left;
+          letter-spacing: 0.09em;
+          margin: 0;
+
+          &:after {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            right: 0.1em;
+            content: '';
+            background-image: url(/media/icon/down-w.svg);
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100%;
+            width: 2em;
+            border: none;
+          }
+        }
+      }
+
+      .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 0.9em 1em;
+        clear: both;
+        font-weight: 400;
+        color: #fff;
+        text-align: inherit;
+        white-space: nowrap;
+        background-color: $psykhe-tan;
+        border: 0;
+
+        &:hover {
+          background-color: $psykhe-tan-dark;
+        }
+      }
+
+      .dropdown-menu.show {
+        z-index: 360;
+        width: 100%;
+        border: none;
+
+        a {
+          text-decoration: none;
+
+          button {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-occasion {
+      .filter-remove {
+        background-image: url(/media/icon/close-wide.svg);
+        background-color: $psykhe-bluegrey;
+      }
+
+      .dropdown {
+        button {
+          background-color: $psykhe-bluegrey;
+          color: black;
+
+          &:after {
+            background-image: url(/media/icon/down.svg);
+          }
+        }
+      }
+
+      .dropdown-item {
+        color: black;
+        background-color: $psykhe-bluegrey;
+        &:hover {
+          background-color: $psykhe-bluegrey-dark;
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-mood {
+      .dropdown-menu.show {
+        .drop-mood {
+          background: $psykhe-tan;
+          padding: 1em 1em;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          color: #fff;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter:hover {
+      .filter-remove {
+        display: block;
+      }
+    }
+
+    .psykhe-browse-filters-filter-category {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      padding: 1.5em 0;
+      font-weight: 400;
+      margin-top: 25px;
+
+      .psykhe-browse-filters-filter-category-top {
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      ul {
+        padding-left: 0;
+        margin-bottom: 0;
+
+        li {
+          &.active {
+            .psykhe-browse-filters-filter-category-label {
+              text-decoration: underline;
+            }
+          }
+
+          .psykhe-browse-filters-filter-category-label {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-color {
+      .psykhe-browse-filters-filter-color-list {
+        font-size: 0.8rem;
+        list-style: none;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: calc(1.5em * 12);
+        margin-top: 0.8em;
+
+        @include media-breakpoint-down(md) {
+          height: calc(1.5em * 5);
+        }
+
+        a {
+          text-decoration: none;
+
+          li {
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 3px;
+
+            &:before {
+              content: '';
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              margin-right: 7px;
+              margin-left: 19px;
+            }
+
+            &:after {
+              display: block;
+              position: absolute;
+              width: 0.9em;
+              height: 1.4em;
+              left: 0;
+              background-image: url(/media/icon/circle.svg);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center center;
+              content: '';
+              top: 1px;
+            }
+            &.active:after,
+            &:hover:after {
+              background-image: url(/media/icon/circle-full.svg);
+            }
+
+            span {
+              vertical-align: top;
+              padding-top: 4px;
+            }
+
+            &.active span,
+            &:hover span {
+              font-weight: bold;
+            }
+
+            &.psykhe-browse-filters-filter-color-black:before {
+              background-color: black;
+            }
+
+            &.psykhe-browse-filters-filter-color-blue:before {
+              background-color: #01148e;
+            }
+
+            &.psykhe-browse-filters-filter-color-brown:before {
+              background-color: #2e1503;
+            }
+
+            &.psykhe-browse-filters-filter-color-pink:before {
+              background-color: #fc08cf;
+            }
+
+            &.psykhe-browse-filters-filter-color-gold:before {
+              background-image: url(/media/swatch/gold.jpg);
+              background-size: contain;
+            }
+
+            &.psykhe-browse-filters-filter-color-green:before {
+              background-color: #00a86b;
+            }
+
+            &.psykhe-browse-filters-filter-color-grey:before {
+              background-color: grey;
+            }
+
+            &.psykhe-browse-filters-filter-color-neutrals:before {
+              background-color: $psykhe-tan;
+            }
+
+            &.psykhe-browse-filters-filter-color-orange:before {
+              background-color: #ff5900;
+            }
+
+            &.psykhe-browse-filters-filter-color-print:before {
+              background-image: url(/media/swatch/print.jpg);
+              background-size: contain;
+            }
+
+            &.psykhe-browse-filters-filter-color-purple:before {
+              background-color: #8b03da;
+            }
+
+            &.psykhe-browse-filters-filter-color-red:before {
+              background-color: #c21807;
+            }
+
+            &.psykhe-browse-filters-filter-color-silver:before {
+              background-image: url(/media/swatch/silver.jpg);
+              background-size: contain;
+            }
+
+            &.psykhe-browse-filters-filter-color-white:before {
+              background-color: white;
+              border: #ccc 1px solid;
+            }
+
+            &.psykhe-browse-filters-filter-color-yellow:before {
+              background-color: #fff700;
+            }
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-brand {
+      .psykhe-browse-filters-filter-brand-search {
+        width: 100%;
+      }
+
+      .psykhe-browse-filters-filter-brand-list {
+        font-size: 0.8rem;
+        list-style: none;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: calc(1.5em * 12);
+        margin-top: 0.8em;
+
+        @include media-breakpoint-down(md) {
+          height: calc(1.5em * 5);
+        }
+
+        a {
+          text-decoration: none;
+
+          li {
+            box-sizing: border-box;
+            position: relative;
+            padding: 2px 0 5px 1.4em;
+            line-height: 1.4em;
+            width: 100%;
+            cursor: pointer;
+
+            &:before {
+              display: block;
+              position: absolute;
+              width: 0.9em;
+              height: 1.4em;
+              left: 0;
+              background-image: url(/media/icon/circle.svg);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center center;
+              content: '';
+            }
+            &.active:before,
+            &:hover:before {
+              background-image: url(/media/icon/circle-full.svg);
+            }
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-option-list {
+      font-size: 0.8rem;
+      list-style: none;
+      width: 100%;
+
+      a {
+        text-decoration: none;
+
+        li {
+          box-sizing: border-box;
+          position: relative;
+          padding: 4px 0 4px 1.3em;
+          line-height: 1.5em;
+          width: 100%;
+          cursor: pointer;
+
+          &:before {
+            display: block;
+            position: absolute;
+            width: 0.9em;
+            height: 1.4em;
+            left: 0;
+            background-image: url(/media/icon/square.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            content: '';
+          }
+          &.active:before,
+          &:hover:before {
+            background-image: url(/media/icon/square-full.svg);
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-price-mode-list {
+      font-size: 0.8rem;
+      list-style: none;
+      width: 100%;
+
+      a {
+        text-decoration: none;
+
+        li {
+          box-sizing: border-box;
+          position: relative;
+          padding: 4px 0 4px 1.3em;
+          line-height: 1.5em;
+          width: 100%;
+          cursor: pointer;
+
+          &:before {
+            display: block;
+            position: absolute;
+            width: 0.9em;
+            height: 1.4em;
+            left: 0;
+            background-image: url(/media/icon/square.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            content: '';
+          }
+          &.active:before,
+          &:hover:before {
+            background-image: url(/media/icon/square-full.svg);
+          }
+        }
+      }
+    }
+
+    .psykhe-browse-filters-filter-price {
+      .psykhe-browse-filters-filter-main {
+        display: flex;
+        flex-direction: row;
+        .psykhe-browse-filters-filter-main-input {
+          max-width: calc(50% - 0.5em);
+          margin-bottom: 20px;
+          &:first-child {
+            padding-right: 1em;
+          }
+
+          label {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0;
+          }
+
+          .psykhe-browse-filters-filter-main-input-container {
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 100%;
+            position: relative;
+
+            &:before {
+              display: block;
+              position: absolute;
+              top: 9px;
+              left: 0.5em;
+              content: '£';
+              font-weight: 400;
+            }
+
+            input {
+              box-sizing: border-box;
+              border: none;
+              width: 100%;
+              padding: 0.7em 0.5em 0.6em 1.4em;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .mob-filters {
+      @include media-breakpoint-up(md) {
+        display: block;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      .mob-filters {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 501;
+        top: 0;
+        left: 0;
+        padding: 5px 20px 30px;
+        overflow: auto;
+      }
+
+      .mob-filter-title {
+        display: block;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 500;
+        padding: 22px 0;
+        text-align: center;
+        width: 100%;
+        background-size: 18px;
+        background-position: 98% center;
+        background-repeat: no-repeat;
+        background-image: url(/media/icon/close.svg);
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .mob-filters-btn {
+        background-color: #fff;
+        border-bottom: #000 1px solid;
+        text-align: left;
+        display: block;
+        padding: 14px 0;
+        background-size: 22px;
+        background-position: 98% center;
+        background-repeat: no-repeat;
+        background-image: url(/media/icon/icon-filter.svg);
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 500;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .btn-filter-apply {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 13px;
+        margin-bottom: 40px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .psykhe-browse-grid-container.psykhe-loading {
+    min-height: 400px;
+  }
+
+  .psykhe-browse-grid-container,
+  .psykhe-browse-grid {
+    // position is set to ensure z-index context of contained psykhe-grid-items
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+  }
+
+  &.psykhe-browse-do-filters {
+    .psykhe-browse-grid-container {
+      padding-right: 0;
+      @extend .col-md-10;
+
+      @include media-breakpoint-down(md) {
+        flex: 0 0 77%;
+        max-width: 77%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .currency[x-currency-symbol] {
+    &:before {
+      display: inline;
+      content: attr(x-currency-symbol);
+    }
+  }
+
+  .currency-eur {
+    &:before {
+      display: inline;
+      content: '€';
+    }
+  }
+
+  .currency-gbp {
+    &:before {
+      display: inline;
+      content: '£';
+    }
+  }
+
+  .currency-usd {
+    &:before {
+      display: inline;
+      content: '$';
+    }
+  }
+
+  .psykhe-browse-pages {
+    padding: 0;
+    width: 100%;
+    margin: 0 0 40px -4%;
+    list-style: none;
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      margin: 0 0 40px;
+    }
+
+    li {
+      display: inline-block;
+
+      a {
+        width: 30px;
+        height: 30px;
+        margin: 0 6px;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 30px;
+        padding-left: 2px;
+        text-align: center;
+        border-radius: 50%;
+        text-decoration: none;
+        display: inline-block;
+
+        &.active {
+          color: #fff;
+          background: $psykhe-tan;
+        }
+      }
+    }
+
+    .psykhe-browse-pages-previous {
+      margin-right: 1.75rem;
+    }
+
+    .psykhe-browse-pages-next {
+      margin-left: 0.25rem;
+    }
+  }
+}
+
+@import 'browse/product';

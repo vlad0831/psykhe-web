@@ -1,0 +1,102 @@
+.login {
+    @extend .card;
+
+    border: none;
+    max-width: 450px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+
+    .login-header {
+        @extend .card-header;
+        font-size: 2.5em;
+        line-height: 1.1em;
+        padding-bottom: 30px;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 0;
+        }
+    }
+    .login-body {
+        @extend .card-body;
+        max-width: 600px;
+
+        .login-blurb {
+            @extend .row;
+            span {
+                @extend .col-5;
+                @extend .offset-7;
+                 font-style: italic;
+                font-size: 0.6rem;
+
+                &:before {
+                    content: "*";
+                }
+            }
+
+            a {
+                color: $psykhe-darkgrey;
+                text-decoration: underline dashed;
+            }
+        }
+
+        .login-forgot-link {
+            cursor: pointer;
+        }
+
+        .login-form-group {
+            @extend .form-group;
+            @extend .row;
+            margin: 0;
+            padding: 0.5rem 0;
+            min-height: 90px;
+            &.last {
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                @extend .mb-0;
+            }
+
+            label {
+                display: none;
+            }
+
+            .login-form-input-group {
+                width: 90%;
+
+                @include media-breakpoint-down(md) {
+                    width: 90%;
+                    padding: 0.1rem 0;
+                }
+
+                input {
+                    @extend .form-control;
+                    padding: 1.5rem .75rem;
+                }
+
+                .invalid-feedback {
+                    position: absolute;
+                }
+            }
+
+            .login-form-button-group {
+                margin-top: 1em;
+                width: 100%;
+                max-width: 200px;
+                button {
+                    @extend .btn;
+                    width: 100%;
+
+                    &[type=submit] {
+                        @extend .btn-primary;
+                    }
+                }
+            }
+            
+            .privacy-link {
+                margin-top: 15px;
+            }
+        }
+    }
+}

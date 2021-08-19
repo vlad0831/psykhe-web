@@ -1,0 +1,13 @@
+.psykhe-redirect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+
+  a {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,83 @@
+@import 'layout/navbar';
+@import 'layout/footer';
+
+html, body {
+    height: 100%;
+    font-weight: 300;
+    letter-spacing: 0.09em;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    color: #000;
+}
+
+body a {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 400;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    @extend .py-4;
+    @extend .container;
+    padding: 0 15px;
+    padding-top: 0 !important;
+    flex: 1;
+
+    .page {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .main-quote {
+        @extend .row;
+
+        .col {
+            padding: 0;
+        }
+
+        section.quote {
+            position: relative;
+            margin: 0;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 0.9rem;
+
+            &:before {
+                content: "\00A0";
+                position: absolute;
+                left: 0;
+                z-index: 0;
+                display: block;
+                width: 100vw;
+                @include media-breakpoint-up(md) {
+                    width: 200vw;
+                    margin-left: -50%;
+                }
+                height: 100%;
+                background-color: black;
+            }
+
+            .quote-text {
+                position: relative;
+                z-index: 1;
+
+                padding: .2em;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+        }
+    }
+}

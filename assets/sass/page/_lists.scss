@@ -1,0 +1,85 @@
+.page.page-lists {
+  h2 {
+    @extend .psykhe-large-heading;
+    @extend .psykhe-double-line-heading;
+  }
+
+  .page-lists-savelists {
+    @extend .row;
+
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin: 0 0.5rem 0.5rem 0;
+        display: inline-flex;
+
+        a {
+          @extend .btn-primary;
+          white-space: nowrap;
+          margin: 0;
+          vertical-align: top;
+          float: left;
+        }
+
+        input {
+          width: 100%;
+          border: 0;
+          color: #fff;
+          background-color: #c1b096;
+          text-transform: uppercase;
+          margin: 0;
+          font-size: 14px;
+
+          @include media-breakpoint-down(md) {
+            padding: 0 1rem;
+          }
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        .list-actions {
+          display: flex;
+          flex-direction: column;
+
+          @include media-breakpoint-down(md) {
+            flex-direction: row;
+          }
+
+          .list-action,
+          .list-action:hover {
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            vertical-align: top;
+
+            &.list-delete {
+              background: $psykhe-tan-dark url(/media/icon/close-w.svg) no-repeat center center / 16px !important;
+            }
+
+            &.list-edit {
+              background: $psykhe-tan-dark url(/media/icon/pencil.svg) no-repeat center center / 16px !important;
+
+              &.editing {
+                background: $psykhe-tan-dark url(/media/icon/tick-w.svg) no-repeat center center / 16px !important;
+              }
+            }
+
+            @include media-breakpoint-down(md) {
+              width: 38px;
+              height: 38px;
+              background-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .psykhe-browse-grid-refine {
+    display: none;
+  }
+}

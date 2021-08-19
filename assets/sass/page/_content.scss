@@ -1,0 +1,292 @@
+.page-content {
+  .navbar {
+    margin-bottom: 0rem;
+  }
+}
+
+.content-wrapper {
+  font-size: 14px;
+  padding-top: 2rem;
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h4 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  h5 {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  p {
+    margin-bottom: 1.3rem;
+    font-size: 15px;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 17px;
+    }
+  }
+
+  img {
+    width: 100%;
+
+    @include media-breakpoint-down(md) {
+      padding-bottom: 20px;
+    }
+
+    &.caption-img {
+      @include media-breakpoint-down(md) {
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .row {
+    margin-bottom: 4rem;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 2rem;
+    }
+
+    .cols {
+      display: flex;
+      flex-wrap: wrap;
+
+      .col {
+        padding: 0;
+        max-width: 100%;
+
+        @include media-breakpoint-down(md) {
+          flex: 0 0 100% !important;
+          padding: 0;
+        }
+      }
+    }
+
+    .cols-2 {
+      .col {
+        flex: 0 0 50%;
+      }
+
+      .col-1 {
+        padding-right: 5%;
+      }
+    }
+
+    .cols-3 {
+      .col {
+        flex: 0 0 35%;
+        padding-right: 5%;
+      }
+
+      .col-3 {
+        flex: 0 0 30%;
+        padding-right: 0%;
+      }
+    }
+  }
+
+  .content-title {
+    width: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 30px;
+    }
+
+    &:after {
+      content: ' ';
+      width: 100%;
+      height: 1px;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      z-index: 0;
+    }
+
+    h3 {
+      font-size: 51px;
+      padding-right: 20px;
+      background: #fff;
+      z-index: 1;
+      display: inline-block;
+      position: relative;
+      width: auto;
+
+      @include media-breakpoint-down(md) {
+        font-size: 35px;
+        padding-right: 14px;
+      }
+    }
+  }
+
+  .content-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-style: italic;
+    padding: 20px 0 40px;
+    line-height: 1.3em;
+    margin: 0;
+
+    @include media-breakpoint-down(lg) {
+      font-size: 29px;
+    }
+
+    @include media-breakpoint-down(md) {
+      font-size: 25px;
+    }
+  }
+
+  .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 300;
+
+    @include media-breakpoint-down(md) {
+      font-size: 60px;
+    }
+  }
+
+  .top-block {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include media-breakpoint-down(md) {
+      height: 300px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 51px;
+
+      @include media-breakpoint-down(md) {
+        color: #fff;
+        font-size: 35px;
+      }
+    }
+  }
+
+  .row-links {
+    margin-bottom: 1rem;
+  }
+
+  .content-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    align-items: center;
+
+    a {
+      text-transform: uppercase;
+      font-size: 15px;
+      text-align: center;
+      font-weight: 500;
+      padding: 0 2%;
+
+      @include media-breakpoint-down(md) {
+        width: 100%;
+        flex: 0 0 100%;
+        padding: 5px 0;
+      }
+
+      &.last {
+        padding: 0 0 0 2%;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .row-page-title {
+    h1 {
+      width: 100%;
+      font-size: 51px;
+      text-align: center;
+
+      @include media-breakpoint-down(lg) {
+        font-size: 41px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 31px;
+      }
+    }
+
+    p {
+      width: 100%;
+      text-align: center;
+      font-size: 17px;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-down(md) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .caption {
+    font-size: 13px;
+    font-style: italic;
+    width: 100%;
+    display: block;
+    padding-bottom: 20px;
+  }
+
+  .btn-home {
+    min-width: 300px;
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+.take-test-row {
+  text-align: center;
+  padding: 20px 15px 50px;
+  width: 100%;
+  border-top: #000 1px solid;
+  margin-top: 20px;
+
+  .btn-home {
+    min-width: 300px;
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+.cta-buttons {
+  display: inline-flex;
+  flex-direction: column;
+
+  @include media-breakpoint-down(sm) {
+    display: flex;
+  }
+}

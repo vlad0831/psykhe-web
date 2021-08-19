@@ -1,0 +1,86 @@
+version: '3.7'
+services:
+  mysql:
+    image: 'mysql:5.7'
+    container_name: psykhe-mysql
+    networks:
+      psykhe-web:
+    environment:
+      MYSQL_DATABASE: psykhe
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - '3306:3306'
+    volumes:
+      - ../shared/database/data:/var/lib/mysql:rw
+      - ../shared/database/init:/docker-entrypoint-initdb.d:ro
+  redis:
+    image: 'redis:alpine'
+    container_name: psykhe-redis
+    networks:
+      psykhe-web:
+    environment:
+      discovery.type: single-node
+    ports:
+      - '6379:6379'
+  web-api:
+    build:
+      dockerfile: deploy/Dockerfile
+      context: ../psykhe-web-api
+      target: web-util
+      args:
+        PHP_UID: 1000
+        PHP_GID: 1000
+    container_name: psykhe-web-api
+    networks:
+      psykhe-web:
+    ports:
+      - '8080:80'
+    volumes:
+    - ../psykhe-web-api:/var/psykhe:rw
+    - ../psykhe-web-api/deploy/etc/apache2/sites-available:/etc/apache2/sites-available:ro
+    environment:
+      - APACHE_HEADER_ACCESS_CONTROL_ALLOW_ORIGIN=http://localhost
+      - APP_ENV=local
+      - APP_KEY=base64:dMpbpRF/m/1weVhLa578dXfyP/v8J7ZTxYLRUqgLjPM=
+      - APP_DEBUG=true
+      - LOG_CHANNEL=errorlog
+      - LOG_STDERR_LEVEL=debug
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=psykhe
+      - DB_USERNAME=root
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_CLIENT=predis
+      - PSYKHE_API_ENDPOINT=https://devapi.test.psykhefashion.com
+      - SESSION_DRIVER=redis
+    working_dir: /var/psykhe
+  web:
+    image: 'node'
+    container_name: psykhe-web
+    networks:
+      psykhe-web:
+    ports:
+      - '80:3000'
+      - '3000:3000'
+    volumes:
+      - .:/app:rw
+    environment:
+      - BASE_URL=http://localhost:8080
+      - NUXT_ENV_API_ROUTE=/api/v1
+      - NUXT_HOST=0.0.0.0
+      - NUXT_PORT=3000
+      - PSYKHE_CSS_CDN_URL_PREFIX=https://media.psykhefashion.com/
+      - MEDIA_CDN_URL=https://media.psykhefashion.com
+      - AVATAR_CDN_URL=https://opt-assets.test.psykhefashion.com/opt-assets
+    entrypoint: [ "bash", "-c", "set -ex; cd /app && yarn install && yarn dev --verbose" ] 
+
+networks:
+  psykhe-web:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.101.0/24

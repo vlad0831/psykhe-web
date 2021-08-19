@@ -1,0 +1,89 @@
+.page.page-insights {
+    .page-insights-referrals {
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            @include media-breakpoint-down(md) {
+                flex-direction: column;
+            }
+
+            li {
+                display: flex;
+                flex-grow: 1;
+                border: none;
+                padding: 0;
+                margin: .5rem;
+                .used {
+                    background-color: $psykhe-lightgrey;
+                    opacity: 0.25;
+                    pointer-events: none;
+
+                    button {
+                        position: relative;
+                        &:after {
+                            content: "Sent!";
+                            position: absolute;
+                            display: block;
+                            width: 100%;
+                            bottom: -3ex;
+                            color: black;
+                        }
+                    }
+                }
+
+                form {
+                    @extend .form-group;
+                    width: 100%;
+                    padding: 0 1rem;
+                    padding: 1.2rem;
+                    background: #c1b096;
+                    border-radius: 3px;
+
+                    fieldset {
+                        width: calc(100% - 205px);
+                        display: inline-block;
+
+                        @include media-breakpoint-down(md) {
+                            width: 100%;
+                        }
+                    }
+
+                    input {
+                        @extend .form-control;
+                        border: none;
+                        width: 46%;
+                        margin-right: 3%;
+                        display: inline-block;
+                        height: 38px;
+
+                        @include media-breakpoint-down(md) {
+                            width: 100%;
+                            margin-right: 0;
+                        }
+                    }
+
+                    button {
+                        @extend .btn;
+                        @extend .btn-primary;
+
+                        background:$psykhe-tan-dark;
+                        width: 200px;
+                        padding: 0.5rem 0;
+                        margin: 0.3em 0;
+                        margin-bottom: 0;
+                        display: inline-block;
+                        vertical-align: top;
+                        border-radius: 4px;
+
+                        @include media-breakpoint-down(md) {
+                            width: 100%;
+                            margin: 20px 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

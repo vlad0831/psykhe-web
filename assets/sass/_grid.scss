@@ -1,0 +1,557 @@
+@mixin psykhe-grid-2-item {
+  flex: 1 0 calc(50% - 10px);
+  max-width: calc(50% - 10px);
+}
+
+@mixin psykhe-grid-3-item {
+  flex: 1 0 calc(33.33333% - 10px);
+  max-width: calc(33.33333% - 10px);
+}
+
+@mixin psykhe-grid-4-item {
+  flex: 1 0 calc(25% - 10px);
+  max-width: calc(25% - 10px);
+}
+
+.psykhe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-top: -10px;
+
+  .item-line {
+    border-top: 1px solid lightgray;
+    height: 1px;
+    width: 100%;
+  }
+
+  .psykhe-grid-item {
+    @include psykhe-grid-2-item;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transform: translateY(0px);
+
+    svg {
+      @include media-breakpoint-down(xs) {
+        flex-grow: 1;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: 0;
+    }
+
+    .psykhe-grid-item-view {
+      position: relative;
+
+      .psykhe-grid-item-view-image {
+        width: 100%;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .psykhe-grid-item-view-panel {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+
+        .psykhe-grid-item-view-actions-close {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          cursor: default;
+          top: 0;
+          left: 0;
+        }
+
+        .psykhe-grid-item-view-panel-actions {
+          position: absolute;
+          top: 15px;
+          left: 15px;
+          display: flex;
+          width: calc(100% - 30px);
+          justify-content: space-between;
+
+          .saved-group-list-top {
+            display: inline-block;
+            vertical-align: top;
+            width: calc(100% - 60px);
+            margin: 0;
+            padding: 4px 0 0;
+            text-transform: uppercase;
+
+            li {
+              list-style: none;
+              display: inline-block;
+              font-weight: 400;
+              color: $psykhe-tan;
+            }
+
+            li:last-child {
+              span {
+                display: none;
+              }
+            }
+          }
+
+          span {
+            font-weight: 400;
+            color: $psykhe-tan;
+          }
+
+          a {
+            &.psykhe-grid-item-view-actions-save {
+              img {
+                height: 1.8rem;
+                vertical-align: middle;
+                padding-right: 0.25rem;
+              }
+            }
+          }
+        }
+
+        .psykhe-grid-item-view-panel-save {
+          overflow-y: auto;
+          overflow-x: hidden;
+          width: auto;
+          height: auto;
+          z-index: 20;
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            font-weight: 400;
+            color: $psykhe-tan;
+          }
+
+          .saved-lists-drop {
+            position: absolute;
+            top: 52px;
+            width: 75%;
+            background: rgba(193, 176, 150, 0.9);
+            border-radius: 4px;
+
+            .saved-list-item {
+              width: 100%;
+              color: #fff;
+              display: block;
+              padding: 12px 10px;
+              line-height: 1.2em;
+
+              img {
+                height: 18px;
+              }
+
+              &.saved {
+                background: rgba(163, 144, 114, 0.8);
+              }
+            }
+
+            .create-list {
+              border-top: #fff 1px solid;
+              width: 100%;
+              margin-top: 5px;
+              padding: 10px;
+
+              img {
+                height: 18px;
+              }
+            }
+          }
+
+          .psykhe-grid-item-view-actions-save,
+          .psykhe-grid-item-view-actions-close {
+            width: auto;
+
+            img {
+              height: 1.8rem;
+              vertical-align: middle;
+              padding-right: 0.25rem;
+            }
+
+            form {
+              display: inline-block;
+              width: calc(100% - 28px);
+              input,
+              input:active,
+              input:focus,
+              input::placeholder {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 0;
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        .list-item-remove {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &.psykhe-zapping {
+        opacity: 0.5;
+        transition: opacity 0.5s;
+
+        .pyskhe-image-zapping {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .psykhe-grid-item-view:hover,
+    .psykhe-grid-item-view.saveui {
+      .psykhe-grid-item-view-panel {
+        display: block;
+      }
+
+      .psykhe-grid-item-view-actions-save {
+        text-decoration: none;
+      }
+    }
+
+    .psykhe-grid-item-details {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-height: 6rem;
+      margin-top: 1rem;
+
+      .psykhe-browse-grid-brand {
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .psykhe-browse-grid-name {
+        flex-grow: 1;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .psykhe-browse-grid-price {
+        position: relative;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+
+        &:before {
+          content: '\1F517';
+          text-decoration: none;
+          display: inline-block;
+          padding-right: 0.2em;
+        }
+      }
+
+      .psykhe-browse-grid-sale_price {
+        color: red;
+        letter-spacing: 0.2em;
+      }
+
+      .sale {
+        color: grey;
+        text-decoration: line-through;
+      }
+
+      .psykhe-browse-grid-label {
+        height: 15px;
+        text-transform: uppercase;
+        text-align: center;
+        font-style: italic;
+        font-weight: 500;
+        margin: 0.5rem 0;
+        color: #c1b096;
+      }
+
+      &.psykhe-zapping {
+        opacity: 0.5;
+        transition: opacity 0.5s;
+
+        .psykhe-text-zapping {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .psykhe-browse-grid-refine {
+      width: 100%;
+      text-align: center;
+      padding-top: 0.8rem;
+      margin-top: 0rem;
+      position: relative;
+
+      @include media-breakpoint-only(md) {
+        padding-bottom: 1.25rem;
+      }
+
+      @include media-breakpoint-only(xs) {
+        padding-bottom: 1.25rem;
+      }
+
+      .psykhe-browse-grid-dislike {
+        width: 38px;
+        height: 38px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        text-indent: -9999em;
+        margin-left: 6px;
+        margin-right: 6px;
+        background: url(/media/icon/dislike.svg) no-repeat center center / 38px;
+
+        &:hover {
+          background-image: url(/media/icon/dislike-hover.svg);
+        }
+      }
+
+      .psykhe-browse-grid-like {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        text-indent: -9999em;
+        margin-left: 6px;
+        margin-right: 6px;
+        background: url(/media/icon/like.svg) no-repeat center center / 40px;
+
+        &:hover {
+          background-image: url(/media/icon/like-hover.svg);
+        }
+      }
+
+      .psykhe-browse-grid-info {
+        top: 25px;
+        right: 25px;
+        position: absolute;
+
+        @include media-breakpoint-only(lg) {
+          right: 0px;
+        }
+
+        @include media-breakpoint-only(md) {
+          top: 60px;
+          right: 58px;
+        }
+
+        @include media-breakpoint-only(sm) {
+          right: 0px;
+        }
+
+        @include media-breakpoint-only(xs) {
+          top: 60px;
+          right: 40%;
+        }
+      }
+    }
+
+    .psykhe-loader-zapping {
+      z-index: 5;
+      width: 16rem;
+      height: 12rem;
+      margin-top: 4rem;
+      margin-left: 1rem;
+      margin-bottom: 7.775rem;
+
+      @media (min-width: 2100px) {
+        margin-bottom: 10.13rem;
+      }
+
+      @include media-breakpoint-down(lg) {
+        width: 12rem;
+        height: 9rem;
+        margin-left: 1.2rem;
+        margin-bottom: 6.6rem;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 10rem;
+        height: 8rem;
+        margin-left: 0;
+        margin-bottom: 2.55rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        width: 16rem;
+        height: 12rem;
+        margin-left: 0;
+        margin-bottom: 5.4rem;
+      }
+
+      @include media-breakpoint-down(xs) {
+        width: 10rem;
+        height: 8rem;
+        margin-top: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &.liked .psykhe-browse-grid-refine .psykhe-browse-grid-like {
+      background-image: url(/media/icon/like-hover.svg);
+    }
+
+    &.disliked .psykhe-browse-grid-refine .psykhe-browse-grid-dislike {
+      background-image: url(/media/icon/dislike-hover.svg);
+    }
+
+    &.zapping {
+      .psykhe-grid-item-details {
+        @include media-breakpoint-down(xs) {
+          flex-grow: 0;
+        }
+      }
+    }
+  }
+
+  &.psykhe-grid-2 {
+    .psykhe-grid-item {
+      @include media-breakpoint-up(md) {
+        @include psykhe-grid-2-item;
+      }
+    }
+  }
+
+  &.psykhe-grid-3 {
+    .psykhe-grid-item {
+      @include media-breakpoint-up(md) {
+        @include psykhe-grid-3-item;
+      }
+    }
+  }
+
+  &.psykhe-grid-4 {
+    .psykhe-grid-item {
+      @include media-breakpoint-up(md) {
+        @include psykhe-grid-4-item;
+      }
+    }
+  }
+
+  &.psykhe-grid-3 {
+    .psykhe-grid-item {
+      @media (min-width: 2100px) {
+        @include psykhe-grid-4-item;
+      }
+    }
+  }
+}
+
+.key-container {
+  font-size: 13px;
+  line-height: 27px;
+  height: 27px;
+  padding-left: 10px;
+  text-align: right;
+
+  @include media-breakpoint-down(md) {
+    font-size: 12px;
+    padding-left: 0px;
+    text-align: left;
+    margin: 10px 0 0;
+    height: 34px;
+    letter-spacing: 0.03em;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .img-dislike {
+    width: 20px;
+    height: 20px;
+    margin: -2px 4px 0 12px;
+
+    @include media-breakpoint-down(md) {
+      width: 16px;
+      height: 16px;
+      margin: -2px 3px 0 8px;
+    }
+  }
+
+  .img-like {
+    width: 26px;
+    height: 26px;
+    margin: -2px 4px 0 12px;
+
+    @include media-breakpoint-down(md) {
+      width: 22px;
+      height: 22px;
+      margin: -2px 3px 0 8px;
+    }
+  }
+
+  b {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include media-breakpoint-down(md) {
+      font-size: 12px;
+    }
+  }
+}
+
+.psykhe-browse-grid-offers {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  list-style: none;
+
+  li {
+    display: none;
+
+    a {
+      display: block;
+      width: 100%;
+
+      @include media-breakpoint-down(md) {
+        font-size: 0.8em;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:first-child {
+      display: block;
+      padding: 4px;
+      background: $psykhe-bluegrey;
+
+      &:after {
+        display: inline;
+        content: '+';
+      }
+      &:last-child:after {
+        display: none;
+      }
+    }
+  }
+}

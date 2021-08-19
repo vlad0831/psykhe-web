@@ -1,0 +1,41 @@
+.psykhe-section-heading {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.psykhe-section-subheading {
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.psykhe-loading-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 50px;
+  padding: 0 1.5rem;
+  align-items: center;
+  margin-bottom: 75px;
+  flex-direction: column;
+
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  svg {
+    max-width: 150px;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 75px;
+    }
+  }
+}

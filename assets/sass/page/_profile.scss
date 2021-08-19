@@ -1,0 +1,468 @@
+.page.page-profile {
+  .page-profile-hero {
+    @extend .col-3;
+
+    @include media-breakpoint-down(md) {
+      flex: 100%;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex: 0 0 110px;
+      padding: 0 5px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      flex: 0 0 100px;
+    }
+
+    img {
+      width: 90%;
+      border: 6px solid $psykhe-tan;
+      border-radius: 50%;
+      background-color: #fff;
+
+      @include media-breakpoint-down(md) {
+        width: 170px;
+      }
+
+      @include media-breakpoint-down(sm) {
+        border: 4px solid #fff;
+        width: 100%;
+      }
+    }
+  }
+
+  .page-profile-intro {
+    @extend .col-9;
+
+    &.with-avatar {
+      @extend .col-6;
+    }
+
+    @include media-breakpoint-down(md) {
+      flex: 100%;
+      max-width: 100%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: calc(100% - 140px);
+      display: inline-block;
+      flex: unset;
+      padding: 18px 0 20px 20px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      width: calc(100% - 110px);
+      padding: 16px 0 15px 15px;
+    }
+
+    h3 {
+      @extend .psykhe-font-heading-fancy;
+      font-size: 2.2rem;
+      letter-spacing: 0;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 1.3rem;
+      }
+
+      @include media-breakpoint-down(xs) {
+        font-size: 1rem;
+      }
+
+      span {
+        @include media-breakpoint-down(sm) {
+          font-size: 1.8rem;
+          display: block;
+        }
+
+        @include media-breakpoint-down(xs) {
+          font-size: 1.4rem;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .with-avatar {
+    padding-top: 40px;
+    @include media-breakpoint-down(md) {
+      padding-top: 10px;
+    }
+  }
+
+  .page-profile-actions {
+    @extend .col-3;
+    padding: 0.5em 2em 1em;
+
+    @include media-breakpoint-down(md) {
+      flex: 100%;
+      max-width: 100%;
+      padding: 1em 0;
+    }
+
+    a {
+      @extend .btn;
+      width: 100%;
+      padding: 12px 5px;
+
+      &.page-profile-actions-saved {
+        @extend .btn-primary;
+        width: 100%;
+        padding: 12px 5px;
+
+        img {
+          height: 1.5rem;
+          vertical-align: middle;
+          padding-right: 0.25rem;
+          filter: invert(0);
+          transition: filter 0.15s ease-in-out;
+        }
+      }
+
+      &.page-profile-actions-insights {
+        @extend .btn-grey;
+      }
+    }
+  }
+
+  .page-profile-traits {
+    @extend .row;
+    width: 100%;
+    margin-top: 40px;
+
+    hr {
+      border-top: 1px solid #000;
+      margin-bottom: 2rem;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    .nav-item {
+      @include media-breakpoint-only(lg) {
+        width: 20%;
+        font-size: 0.58rem;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      margin-top: 0px;
+    }
+
+    .page-profile-traits-top {
+      @include media-breakpoint-down(sm) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .col {
+      @include media-breakpoint-down(md) {
+        flex: 0 0 100%;
+        padding: 0 0 0px;
+      }
+    }
+
+    .tab-content {
+      margin-top: 2rem;
+
+      h3,
+      h4 {
+        margin: 1rem 0;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 0.5rem;
+      }
+
+      .page-profile-traits-hero {
+        img {
+          width: 100%;
+        }
+
+        @include media-breakpoint-down(sm) {
+          order: 2;
+          flex: 0 0 100%;
+        }
+      }
+
+      .page-profile-traits-score {
+        @extend .row;
+
+        @include media-breakpoint-down(sm) {
+          order: 1;
+          flex: 0 0 100%;
+          padding-bottom: 1.5rem;
+        }
+
+        .page-profile-traits-score-breakdown {
+          @extend .col;
+          text-transform: uppercase;
+
+          @include media-breakpoint-down(md) {
+            flex: 0 0 50%;
+          }
+
+          @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+          }
+
+          .page-profile-traits-score-breakdown-item {
+            margin: 0;
+
+            .page-profile-traits-score-breakdown-item-range {
+              display: inline-block;
+              width: 5em;
+              font-weight: bold;
+
+              &:after {
+                content: '%';
+                display: inline;
+              }
+            }
+
+            .page-profile-traits-score-breakdown-item-human {
+            }
+          }
+        }
+
+        .page-profile-traits-score-hero {
+          @include media-breakpoint-down(md) {
+            flex: 0 0 50%;
+          }
+
+          @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+
+            h3 {
+              display: inline-block;
+              width: calc(100% - 140px);
+            }
+          }
+
+          .page-profile-traits-score-hero-percentage {
+            @extend .psykhe-font-heading-fancy;
+            text-align: right;
+            font-size: 8rem;
+            line-height: 0.3em;
+            letter-spacing: -0.7rem;
+
+            @include media-breakpoint-down(md) {
+              line-height: 1em;
+            }
+
+            @include media-breakpoint-down(sm) {
+              text-align: left;
+              font-size: 6rem;
+              padding-top: 0px;
+              display: inline-block;
+              width: 130px;
+            }
+
+            &:after {
+              content: '%';
+              display: inline;
+              font-size: 2.5rem;
+              margin-left: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page-profile-matches {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    width: 100%;
+
+    @include media-breakpoint-down(md) {
+      padding-top: 2rem;
+    }
+
+    h3 {
+      @extend .psykhe-large-heading;
+      padding: 30px 0;
+    }
+
+    .see-more-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+
+      a {
+        @extend .btn-primary;
+        padding: 12px 40px;
+
+        @include media-breakpoint-down(md) {
+          width: 100%;
+          padding: 12px 5px;
+          margin-top: 0.5rem;
+          text-align: center;
+        }
+      }
+    }
+
+    .key-container {
+      padding: 10px 0 0;
+      min-height: 40px;
+      text-align: right;
+      margin: 0;
+    }
+
+    .nav-link {
+      &.active {
+        &:after {
+          bottom: -4px;
+        }
+      }
+    }
+
+    .psykhe-browse {
+      .psykhe-browse-grid {
+        flex: 1;
+        max-width: 100%;
+        padding: 0;
+
+        > .container {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .page-profile-waitlist {
+    width: 100%;
+    margin-top: 4rem;
+
+    p {
+      @extend .psykhe-font-heading-fancy;
+      font-size: 1.35rem;
+      text-align: center;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+
+  @include media-breakpoint-down(md) {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0.2em;
+    text-align: center;
+    background-color: $psykhe-bluegrey;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 1em 0.5em;
+
+    &.active {
+      background-color: white;
+      border: 1px solid black;
+      border-bottom: none;
+      position: relative;
+
+      @include media-breakpoint-down(md) {
+        border-bottom: 1px solid black;
+      }
+
+      &:after {
+        content: ' ';
+        display: block;
+        width: calc(100% + 2px);
+        height: 1rem;
+        position: absolute;
+        left: -1px;
+        bottom: -4px;
+        background-color: white;
+        border: none;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.profile-top {
+  @include media-breakpoint-down(sm) {
+    background: $psykhe-tan;
+    padding: 15px 20px;
+    color: #fff;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin-top: -15px;
+  }
+
+  .profile-top-message {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: #fff;
+    width: 100%;
+  }
+}
+
+.profile-trait-bars {
+  width: 100%;
+
+  .trait-bar {
+    width: 100%;
+    background: #cbbda7;
+    height: 56px;
+    position: relative;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    border: $psykhe-tan 3px solid;
+
+    &:hover {
+      border-color: #fff;
+    }
+
+    .trait-text {
+      line-height: 50px;
+      padding-left: 20px;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: white;
+      z-index: 10;
+    }
+
+    .trait-bar-inner {
+      background: $psykhe-tan-dark;
+      height: 50px;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 6px;
+      z-index: 0;
+    }
+  }
+}

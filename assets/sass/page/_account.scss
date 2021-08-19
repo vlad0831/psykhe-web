@@ -1,0 +1,141 @@
+.page.page-account {
+  .navbar {
+    padding-bottom: 0;
+  }
+
+  .psykhe-account-profile {
+    @extend .container;
+    width: 100%;
+
+    .psykhe-account-profile-banner-nag {
+      @extend .row;
+      position: relative;
+      background-color: $psykhe-tan;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+
+      &:before {
+        content: ' ';
+        display: block;
+        background-color: $psykhe-tan;
+        position: absolute;
+        z-index: -1;
+        width: 200vw;
+        top: 0;
+        left: -100vw;
+        height: 100%;
+      }
+
+      h2 {
+        width: 100%;
+        font-size: 2rem;
+        @extend .psykhe-font-heading-fancy;
+      }
+
+      span {
+        width: 100%;
+        text-transform: uppercase;
+      }
+    }
+
+    .psykhe-account-profile-inputs {
+      @extend .row;
+      margin-top: 2rem;
+
+      @include media-breakpoint-down(sm) {
+        .component-avatar-upload {
+          max-width: 160px;
+          margin: 0 auto;
+        }
+      }
+
+      .psykhe-account-profile-details {
+        @extend .col-md-6;
+
+        button {
+          margin: 0;
+        }
+
+        label {
+          padding: 0.9rem;
+          font-weight: 300;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .psykhe-mutable-questions {
+      margin-top: 3rem;
+      margin-bottom: 6rem;
+
+      .message {
+        margin-bottom: 2rem;
+      }
+
+      .question-list {
+        margin-bottom: 2rem;
+
+        &.extra-margin {
+          margin-bottom: 4rem;
+        }
+      }
+
+      h3 {
+        @extend .psykhe-font-heading-fancy;
+        font-size: 2rem;
+        letter-spacing: 0;
+      }
+
+      .heading {
+        @extend .psykhe-font-heading-fancy;
+
+        font-size: 1.5rem;
+        margin-bottom: 0;
+      }
+
+      .subheading {
+        @extend .psykhe-font-nav;
+
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .psykhe-account-profile-actions {
+    @extend .row;
+    border-top: 0.2rem solid $psykhe-tan;
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    .psykhe-account-profile-actions-secondary-container {
+      @extend .col-md-6;
+
+      a {
+        @extend .btn-line;
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .psykhe-account-profile-actions-primary-container {
+      @extend .col-md-6;
+      text-align: right;
+      a {
+        @extend .btn;
+        @extend .btn-primary;
+        @include media-breakpoint-down(sm) {
+          width: 100%;
+          text-align: center;
+        }
+
+        img {
+          width: 14px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

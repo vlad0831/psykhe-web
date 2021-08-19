@@ -1,0 +1,29 @@
+// https://gist.github.com/B-iggy/14da053d2cebf92e1930
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@function data-encode($string) {
+  $map: (
+   "%": "%25",
+   "<": "%3C",
+   ">": "%3E",
+   "'": "%27",
+   '"': "'",
+   "#": "%23"
+   );
+  $new: $string;
+  @each $search, $replace in $map {
+    $new: str-replace($new, $search, $replace);
+  }
+  @return $new;
+}
+
+@function inline-svg($string) {
+  @return url('data:image/svg+xml;charset=UTF-8,#{data-encode($string)}');
+}

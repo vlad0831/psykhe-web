@@ -1,0 +1,103 @@
+.psykhe-traits {
+    svg {
+        overflow: visible;
+    }
+
+    > svg {
+        width: 100%;
+        background-color: white;
+        padding: 2rem 0;
+    }
+
+    .psykhe-traits-outer {
+        fill: none;
+        stroke: black;
+        stroke-width: 6;
+    }
+
+    .psykhe-traits-p {
+
+    }
+
+    .psykhe-traits-trait {
+        fill: $psykhe-gold;
+        stroke: white;
+        stroke-width: 29;
+        paint-order: stroke fill;
+
+        transition-property: transform, stroke-width;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 2);
+    }
+
+    text {
+        fill: $psykhe-darkgold;
+        font-size: 2rem;
+        font-weight: bold;
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    .container-fluid {
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+
+        background-color: $psykhe-black;
+        padding: 0.25rem 0;
+        margin-bottom: 0.5rem;
+
+        .row {
+            padding: 0.25rem 0;
+            margin: 0;
+
+            .progress {
+                background-color: $psykhe-black;
+                height: 2rem;
+                width: 100%;
+
+                .progress-bar {
+                    background-color: $psykhe-white;
+                    color: $psykhe-black;
+                    text-align: right;
+                    padding-right: 1ex;
+                    height: 2rem;
+                    font-size: 1.5rem;
+                    min-width: 13%;
+                }
+
+                .psykhe-traits-progress-label {
+                    color: $psykhe-white;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                    line-height: 4ex;
+                    padding-left: 0.5em;
+                }
+            }
+        }
+    }
+
+    .psykhe-traits-share-link {
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0.2rem 0.4rem;
+        color: $psykhe-darkgold;
+        font-family: 'Helvetica', 'Lato', sans-serif;
+        text-transform: uppercase;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-repeat: no-repeat;
+            background-image: inline-svg("<svg version='1.1' viewBox='0 0 724.18 806.76' xmlns='http://www.w3.org/2000/svg'><g transform='translate(1193.5 499.59)'><g transform='matrix(0 -17.254 17.254 0 10443 -2252.9)'><path transform='translate(1.1045 -949.48)' d='m-134.38 309.5c0 4.1683-3.3791 7.5474-7.5474 7.5474s-7.5474-3.3791-7.5474-7.5474 3.3791-7.5474 7.5474-7.5474 7.5474 3.3791 7.5474 7.5474z' color='#000000'/><path transform='translate(32.767 -949.48)' d='m-134.38 309.5c0 4.1683-3.3791 7.5474-7.5474 7.5474s-7.5474-3.3791-7.5474-7.5474 3.3791-7.5474 7.5474-7.5474 7.5474 3.3791 7.5474 7.5474z' color='#000000'/><path transform='translate(16.936 -976.35)' d='m-134.38 309.5c0 4.1683-3.3791 7.5474-7.5474 7.5474s-7.5474-3.3791-7.5474-7.5474 3.3791-7.5474 7.5474-7.5474 7.5474 3.3791 7.5474 7.5474z' color='#000000'/><rect transform='rotate(-60.001)' x='488.22' y='-443.73' width='27.692' height='3' color='#000000'/><rect transform='matrix(-.5 -.86603 -.86603 .5 0 0)' x='613.16' y='-226.9' width='27.692' height='3' color='#000000'/></g></g></svg>");
+            vertical-align: middle;
+        }
+    }
+}

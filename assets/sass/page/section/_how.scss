@@ -1,0 +1,104 @@
+.home-how-psykhe-works {
+  padding: 0;
+
+  @include media-breakpoint-down(md) {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .inner {
+    max-width: 550px;
+    margin: 0 auto 30px;
+  }
+}
+.steps {
+  padding: 40px 0 0;
+  margin: 0;
+  li {
+    list-style: none;
+    position: relative;
+  }
+
+  .step {
+    padding-bottom: 2rem;
+
+    &.last {
+      padding-bottom: 0;
+    }
+
+    h4 {
+      position: relative;
+      text-transform: uppercase;
+      padding-left: 5rem;
+      font-size: 1.1rem;
+      margin: 0 0 6px;
+
+      @include media-breakpoint-down(md) {
+        font-size: 0.9rem;
+      }
+    }
+
+    &:before {
+      content: "\00A0";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-repeat: no-repeat;
+      height: 4rem;
+      width: 3.5rem;
+    }
+
+    p {
+      margin-left: 5rem;
+    }
+  }
+
+  .step:nth-child(1) {
+    @include media-breakpoint-up(md) {
+      float: left;
+      width: 100%;
+    }
+
+    &:before {
+      background-image: url(/media/icon/home/forms.svg);
+    }
+  }
+
+  .step:nth-child(2) {
+    @include media-breakpoint-up(md) {
+      float: left;
+      width: 100%;
+    }
+
+    &:before {
+      background-image: url(/media/icon/home/neural.svg);
+    }
+  }
+
+  .step:nth-child(3) {
+    @include media-breakpoint-up(md) {
+      float: left;
+      width: 100%;
+    }
+
+    &:before {
+      background-image: url(/media/icon/home/hat.svg);
+    }
+  }
+
+  .step:nth-child(4) {
+    padding-bottom: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+      float: left;
+      width: 100%;
+
+    }
+
+    &:before {
+      background-image: url(/media/icon/home/cocktail.svg);
+    }
+  }
+}
+

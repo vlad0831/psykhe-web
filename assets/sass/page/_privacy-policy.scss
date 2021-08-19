@@ -1,0 +1,32 @@
+.page.page-privacy-policy {
+    main {
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        p:last-child {
+            margin-bottom: 2em;
+        }
+
+        table {
+            tr {
+                td {
+                    border: 1px solid grey;
+                    vertical-align: top;
+                    padding: 0.25em 0.5em;
+
+                    ol {
+                        padding: 0;
+                        padding-left: 2em;
+                    }
+                }
+            }
+        }
+    }
+}

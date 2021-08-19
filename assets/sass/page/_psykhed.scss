@@ -1,0 +1,151 @@
+.profile-wrapper {
+
+	.row-page-title {
+		margin-bottom: 2rem;
+
+		p {
+		margin-bottom:0;
+		}
+	}
+
+	.cols-2 {
+
+		.col-1 { 
+			padding-right: 2%;
+
+			@include media-breakpoint-down(md) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.col-2 { 
+			padding-left: 2%;
+			padding-right: 0;
+
+			@include media-breakpoint-down(md) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	.code {
+		margin-top: 2rem;
+	}
+
+	.row-profile {
+		padding-top: 1rem;
+
+		.profile-block {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			border-bottom: #c2b197 1px solid;
+			padding: 1.5rem 0;
+
+			&.no-border-desk {
+				border-bottom:none;
+
+				@include media-breakpoint-down(md) {
+					border-bottom: #c2b197 1px solid;
+				}
+			}
+
+			.img-holder {
+				flex: 0 0 40%;
+
+				@media (max-width: 400px) {
+					flex: 0 0 100%;
+				}
+			}
+
+			.copy-holder {
+				display: block;
+				flex: 0 0 60%;
+				padding-left: 2rem;
+
+				@media (max-width: 400px) {
+					flex: 0 0 100%;
+					padding-left: 0;
+				}
+
+				h5 {
+					color: #c2b197; 
+					margin-bottom: 1rem;
+					margin-top: 1rem;
+
+					span {
+						width: 100%;
+						color: #000; 
+						display: block;
+					}
+				}
+
+				p {
+					margin-bottom: 0; 
+				}
+
+				.number {
+					color: #c2b197;
+					font-weight: 400;
+					font-size: 53px;
+					line-height: 1em; 
+
+					span {
+						font-size: 33px;
+					}
+				}
+
+				.name {
+					font-size: 15px; 
+					font-weight: 400; 
+					margin-bottom: 1rem;
+					line-height: 1.2em;
+				}
+			}
+
+			&.block-img-right {
+
+				.copy-holder {
+					padding-left: 0;
+					padding-right: 2rem;
+
+					@include media-breakpoint-down(md) {
+						order:2;
+						padding-left: 2rem;
+						padding-right: 0;
+					}
+
+					@include media-breakpoint-down(xs) {
+						padding-left: 1rem;
+					}
+				}
+
+				.img-holder {
+
+					@include media-breakpoint-down(md) {
+						order:1;
+					}
+				}
+			}
+		}
+	}
+
+	.row-qanda {
+
+		img {
+			padding-bottom: 6px;
+		}
+
+		h5 { 
+		margin-top: 2rem;
+		margin-bottom:1rem;
+
+		@include media-breakpoint-down(xs) {
+			margin-top: 1rem;
+			margin-bottom:0.5rem;
+			}
+		}
+	}
+}

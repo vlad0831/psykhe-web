@@ -1,0 +1,156 @@
+.btn,
+.btn-line {
+  @extend .animate;
+  margin-bottom: 1ex;
+  border: $psykhe-black 1px solid;
+  font-size: 14px;
+  font-weight: 400;
+  color: $psykhe-black;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  display: inline-block;
+}
+
+.btn:hover:not([disabled]) {
+  border-color: $psykhe-black;
+  color: $psykhe-white;
+  background-color: $psykhe-black;
+  text-decoration: none !important;
+}
+.btn[disabled] {
+  background-color: $psykhe-lightgrey;
+}
+
+.btn-primary {
+  @extend .animate;
+  color: $psykhe-white;
+  background-color: $psykhe-tan;
+  border: $psykhe-tan 1px solid;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.btn-primary:hover:not([disabled]) {
+  background: $psykhe-tan-dark;
+  border-color: $psykhe-tan-dark;
+  text-decoration: none !important;
+}
+
+.btn-black {
+  @extend .btn;
+  color: $psykhe-white;
+  background-color: $psykhe-black;
+  border-color: $psykhe-black;
+  text-transform: uppercase;
+  padding: 1.1em 2.7em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+
+  &:hover {
+    background-color: $psykhe-white;
+    border-color: $psykhe-black;
+    color: $psykhe-black;
+  }
+}
+
+.btn-white {
+  @extend .animate;
+  color: $psykhe-black;
+  background-color: $psykhe-white;
+  border: $psykhe-white 1px solid;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.btn-white:hover {
+  background: $psykhe-black !important;
+  border-color: $psykhe-black !important;
+  color: $psykhe-white !important;
+  text-decoration: none !important;
+}
+
+.btn-white-line {
+  @extend .animate;
+  color: $psykhe-white;
+  background: none;
+  border: $psykhe-white 1px solid;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.btn-white-line:hover {
+  background: $psykhe-black !important;
+  border-color: $psykhe-black !important;
+  color: $psykhe-white !important;
+  text-decoration: none !important;
+}
+
+.btn-grey {
+  @extend .animate;
+  color: #000;
+  background-color: $psykhe-bluegrey;
+  border: $psykhe-bluegrey 1px solid;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.btn-grey:hover {
+  background: $psykhe-tan;
+  border-color: $psykhe-tan;
+  color: $psykhe-white !important;
+  text-decoration: none !important;
+}
+
+.btn,
+.btn-line,
+.btn-primary,
+.btn-white-line,
+.btn-grey {
+  @include media-breakpoint-down(md) {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
+.btn-secondary {
+  @extend .btn-grey;
+}
+
+.btn-home {
+  @extend .animate;
+  padding: 15px 40px;
+  font-size: 15px;
+  color: $psykhe-white;
+  background-color: $psykhe-tan;
+  border: $psykhe-tan 1px solid;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+
+  &.light {
+    color: #000;
+    border-color: #000;
+    background-color: #fff;
+  }
+}
+
+.btn-home:hover {
+  background: $psykhe-tan-dark !important;
+  border-color: $psykhe-tan-dark !important;
+  color: $psykhe-white !important;
+  text-decoration: none !important;
+}

@@ -1,0 +1,18 @@
+@mixin text-outline($offset, $color) {
+  $offset-n: -$offset;
+  $offset-p: $offset;
+  text-shadow: $offset-n $offset-n 0 $color, $offset-n 0 0 $color, $offset-n $offset-p 0 $color, 0 $offset-n 0 $color,
+    // skip 0 0
+    0 $offset-p 0 $color,
+    $offset-p $offset-n 0 $color, $offset-p 0 0 $color, $offset-p $offset-p 0 $color;
+}
+
+.obfuscated-email:after {
+  content: attr(data-addr) '@' attr(data-host) '.' attr(data-tld);
+}
+
+@import 'util/svg';
+
+@function psykhe-cdn-url($pool, $path) {
+  @return url('#{$PSYKHE_CSS_CDN_URL_PREFIX}#{$pool}/#{$path}');
+}

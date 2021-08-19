@@ -1,0 +1,30 @@
+.psykhe-brand {
+    font-size: 2rem;
+
+    background-image: url(/media/brand/psykhe-wordmark.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top center;
+    color: rgba(0,0,0,0);
+    &:active, &:focus, &:hover, &:visited {
+        color: rgba(0,0,0,0);
+    }
+
+    margin: 0;
+    padding: 0;
+
+    display: inline-block;
+    width: 125px;
+    height: 25px;
+    @include media-breakpoint-up(sm) {
+        width: 150px;
+    }
+}
+
+.psykhe-dark .psykhe-brand {
+    background-image: url(/media/brand/psykhe-wordmark-dark.svg);
+    color: rgba(0,0,0,0);
+    &:active, &:focus, &:hover, &:visited {
+        color: rgba(0,0,0,0);
+    }
+}
